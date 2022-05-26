@@ -11,5 +11,5 @@ part './home/main_page.dart';
 part './home/home_page.dart';
 part './home/chat_page.dart';
 part './home/profile_page.dart';
-part './home/whistlist_page.dart';
+part 'home/wishlist_page.dart';
 part 'detail_chat_page.dart';

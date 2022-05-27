@@ -18,6 +18,7 @@ Color subTitleTextColor =  const Color(0xff504f5e);
 Color transparentColor = Colors.transparent;
 Color blackColor = Color(0xff2e2e2e);
 Color backgroundCardColor = Color(0xffecedef);
+Color backgroundColor6 = Color(0xffECEDEF);
 
 TextStyle primaryTextStyle = GoogleFonts.poppins(
   color: primaryTextColor

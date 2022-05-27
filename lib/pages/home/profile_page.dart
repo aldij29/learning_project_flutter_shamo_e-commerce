@@ -27,22 +27,23 @@ class ProfilePage extends StatelessWidget {
                   width: 16,
                 ),
                 Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Hallo, Alex',
-                      style: primaryTextStyle.copyWith(
-                          fontSize: 24, fontWeight: semiBold),
-                    ),
-                    Text(
-                      '@alexkeinn',
-                      style: suibTitleTextStyle.copyWith(
-                        fontSize: 16,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hallo, Alex',
+                        style: primaryTextStyle.copyWith(
+                            fontSize: 24, fontWeight: semiBold),
                       ),
-                    )
-                  ],
-                )),
+                      Text(
+                        '@alexkeinn',
+                        style: suibTitleTextStyle.copyWith(
+                          fontSize: 16,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamedAndRemoveUntil(
@@ -100,7 +101,8 @@ class ProfilePage extends StatelessWidget {
                 style: primaryTextStyle.copyWith(
                     fontWeight: semiBold, fontSize: 16),
               ),
-              menuItem('Edit Profile'),
+              GestureDetector(onTap: (){Navigator.pushNamed(context, 
+              '/edit-profile');},child: menuItem('Edit Profile')),
               menuItem('Your Orders'),
               menuItem('Help'),
               SizedBox(

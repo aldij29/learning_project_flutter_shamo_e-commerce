@@ -13,3 +13,5 @@ part './home/chat_page.dart';
 part './home/profile_page.dart';
 part 'home/wishlist_page.dart';
 part 'detail_chat_page.dart';
+part 'edit_profile_page.dart';
+part 'product_page.dart';

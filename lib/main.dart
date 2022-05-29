@@ -15,10 +15,11 @@ class MyApp extends StatelessWidget {
       '/': (context) => const SplashPage(),
       '/sign-in': (context) => const SignInPage(),
       '/sign-up': (context) => const SignUpPage(),
-      '/home':(context) => const MainPage(),
-      '/detail-chat':(context) => const DetailChatPage(),
-      '/edit-profile':(context) => const EditProfilePage(),
-      '/product':(context) => ProductPage()
+      '/home': (context) => const MainPage(),
+      '/detail-chat': (context) => const DetailChatPage(),
+      '/edit-profile': (context) => const EditProfilePage(),
+      '/product': (context) => ProductPage(),
+      '/cart': (context) => const CartPage()
     });
   }
 }

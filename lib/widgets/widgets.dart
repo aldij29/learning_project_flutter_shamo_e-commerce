@@ -7,3 +7,4 @@ part 'products_tile.dart';
 part 'chat_tile.dart';
 part 'chat_bubles.dart';
 part 'wishlist_card.dart';
+part 'cart_card.dart';

@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -24,14 +23,6 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashPage(),
         '/sign-in': (context) => const SignInPage(),
         '/sign-up': (context) => SignUpPage(),
-=======
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => const SplashPage(),
-        '/sign-in': (context) => const SignInPage(),
-        '/sign-up': (context) => const SignUpPage(),
->>>>>>> 93af176538058805c3d002dfdea6fcc615f76e1b
         '/home': (context) => const MainPage(),
         '/detail-chat': (context) => const DetailChatPage(),
         '/edit-profile': (context) => const EditProfilePage(),
@@ -39,11 +30,7 @@ class MyApp extends StatelessWidget {
         '/cart': (context) => const CartPage(),
         '/checkout': (context) => const CheckoutPage(),
         '/checkout-success': (context) => const CheckoutSuccessPage()
-<<<<<<< HEAD
       }),
-=======
-      },
->>>>>>> 93af176538058805c3d002dfdea6fcc615f76e1b
     );
   }
 }

@@ -5,6 +5,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
     Widget header() {
       return AppBar(
         backgroundColor: backgroundColor1,
@@ -17,10 +19,14 @@ class ProfilePage extends StatelessWidget {
             ),
             child: Row(
               children: [
-                ClipOval(
-                  child: Image.asset(
-                    'assets/images/image_avatar.png',
-                    width: 64,
+                Container(
+                  height: 64,
+                  width: 64,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: NetworkImage(user.profilePhotoUrl.toString()),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -31,12 +37,12 @@ class ProfilePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hallo, Alex',
+                        'Hallo, ${user.name}',
                         style: primaryTextStyle.copyWith(
                             fontSize: 24, fontWeight: semiBold),
                       ),
                       Text(
-                        '@alexkeinn',
+                        '@${user.username}',
                         style: suibTitleTextStyle.copyWith(
                           fontSize: 16,
                         ),
@@ -101,8 +107,11 @@ class ProfilePage extends StatelessWidget {
                 style: primaryTextStyle.copyWith(
                     fontWeight: semiBold, fontSize: 16),
               ),
-              GestureDetector(onTap: (){Navigator.pushNamed(context, 
-              '/edit-profile');},child: menuItem('Edit Profile')),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/edit-profile');
+                  },
+                  child: menuItem('Edit Profile')),
               menuItem('Your Orders'),
               menuItem('Help'),
               SizedBox(

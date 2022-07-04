@@ -1,10 +1,52 @@
 part of 'pages.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  SignUpPage({Key? key}) : super(key: key);
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  TextEditingController nameController = TextEditingController(text: '');
+
+  TextEditingController usernameController = TextEditingController(text: '');
+
+  TextEditingController emailController = TextEditingController(text: '');
+
+  TextEditingController passwordController = TextEditingController(text: '');
+
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    handleSignup() async {
+      setState(() {
+        isLoading = true;
+      });
+      if (await authProvider.register(
+          name: nameController.text,
+          username: usernameController.text,
+          email: emailController.text,
+          password: passwordController.text)) {
+        Navigator.pushNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: alertColor,
+            content: Text(
+              'Gagal Register',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
+      setState(() {
+        isLoading = false;
+      });
+    }
+
     Widget header() {
       return Container(
         margin: const EdgeInsets.only(top: 30),
@@ -68,6 +110,7 @@ class SignUpPage extends StatelessWidget {
                   Expanded(
                       child: TextFormField(
                     style: primaryTextStyle,
+                    controller: nameController,
                     decoration: InputDecoration.collapsed(
                       hintText: 'Your Fullname',
                       hintStyle: suibTitleTextStyle,
@@ -119,6 +162,7 @@ class SignUpPage extends StatelessWidget {
                   Expanded(
                       child: TextFormField(
                     style: primaryTextStyle,
+                    controller: usernameController,
                     decoration: InputDecoration.collapsed(
                       hintText: 'Your Username',
                       hintStyle: suibTitleTextStyle,
@@ -170,6 +214,7 @@ class SignUpPage extends StatelessWidget {
                   Expanded(
                       child: TextFormField(
                     style: primaryTextStyle,
+                    controller: emailController,
                     decoration: InputDecoration.collapsed(
                       hintText: 'Your Email Address',
                       hintStyle: suibTitleTextStyle,
@@ -221,6 +266,7 @@ class SignUpPage extends StatelessWidget {
                   Expanded(
                       child: TextFormField(
                     style: primaryTextStyle,
+                    controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration.collapsed(
                       hintText: 'Your Password',
@@ -241,9 +287,7 @@ class SignUpPage extends StatelessWidget {
         width: double.infinity,
         margin: EdgeInsets.only(top: 30),
         child: TextButton(
-          onPressed: (){
-            Navigator.pushNamed(context, '/home');
-          },
+          onPressed: handleSignup,
           style: TextButton.styleFrom(
               backgroundColor: primaryColor,
               shape: RoundedRectangleBorder(
@@ -296,7 +340,7 @@ class SignUpPage extends StatelessWidget {
               usernameInput(),
               emailInput(),
               passwordInput(),
-              signInButton(),
+              isLoading ? LoadingButton() : signInButton(),
               Spacer(),
               footer()
             ],

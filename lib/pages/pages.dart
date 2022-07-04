@@ -2,8 +2,13 @@ import 'dart:async';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shamo_ecommerce/shared/themes.dart';
+import 'package:shamo_ecommerce/widgets/loading_button.dart';
 import 'package:shamo_ecommerce/widgets/widgets.dart';
+
+import '../models/user_model.dart';
+import '../providers/auth_provider.dart';
 
 part 'splash_page.dart';
 part 'sign_in_page.dart';

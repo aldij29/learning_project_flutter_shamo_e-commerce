@@ -5,6 +5,8 @@ class EditProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
     header() {
       return AppBar(
         leading: IconButton(
@@ -47,7 +49,7 @@ class EditProfilePage extends StatelessWidget {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'Alex Keinzal',
+                hintText: user.name,
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -73,7 +75,7 @@ class EditProfilePage extends StatelessWidget {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: '@Alexkeinn',
+                hintText: user.username,
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -99,7 +101,7 @@ class EditProfilePage extends StatelessWidget {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: 'alex.kein@gmail.com',
+                hintText: user.email,
                 hintStyle: primaryTextStyle,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -129,8 +131,8 @@ class EditProfilePage extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: AssetImage('assets/images/image_avatar.png'),
-                ),
+                    image: NetworkImage(user.profilePhotoUrl.toString()),
+                    fit: BoxFit.fill),
               ),
             ),
             nameInput(),

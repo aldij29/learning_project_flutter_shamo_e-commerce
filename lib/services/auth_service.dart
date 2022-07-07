@@ -4,7 +4,7 @@ import 'package:shamo_ecommerce/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  String baseUrl = 'shamo-backend.buildwithangga.id';
+  String baseUrl = 'b932-125-164-20-181.ap.ngrok.io';
 
   Future<UserModel> register(
       {required String name,

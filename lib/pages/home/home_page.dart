@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
     UserModel user = authProvider.user;
     Widget header() {
       return Container(
-        margin: EdgeInsets.only(
+        margin: EdgeInsets.only( 
           top: defaultMargin,
           left: defaultMargin,
           right: defaultMargin,
@@ -38,8 +38,8 @@ class HomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: NetworkImage(user.profilePhotoUrl.toString()),
-                ),
+                    image: NetworkImage(user.profilePhotoUrl.toString()),
+                    fit: BoxFit.cover),
               ),
             ),
           ],

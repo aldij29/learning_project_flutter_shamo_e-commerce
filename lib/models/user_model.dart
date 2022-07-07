@@ -20,7 +20,7 @@ class UserModel {
     name = json['name'];
     email = json['email'];
     username = json['username'];
-    profilePhotoUrl = json['photo_profile_url'];
+    profilePhotoUrl = json['profile_photo_path'];
     token = json['token'];
   }
 
@@ -30,7 +30,7 @@ class UserModel {
       'name': name,
       'email': email,
       'username': username,
-      'profile_photo_url': profilePhotoUrl,
+      'profile_photo_path': profilePhotoUrl,
       'token': token
     };
   }
